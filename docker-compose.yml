@@ -1,0 +1,12 @@
+services:
+    api:
+        image: tdmu_api_gateway:latest
+        environment:
+            - PORT=3000
+            - AUTH_SERVICE_PORT=4000
+            - AUTH_SERVICE_HOST=localhost
+            - POST_SERVICE_HOST=http://ip172-18-0-55-ckd6h5ksnmng00b1uveg-80.direct.labs.play-with-docker.com/
+            - USER_SERVICE_HOST=http://localhost:4002/api/user
+            - CLIENT_ORIGIN_URL=*
+        ports:
+            - '3000:3000'
