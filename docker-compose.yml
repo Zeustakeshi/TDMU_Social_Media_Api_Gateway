@@ -3,8 +3,10 @@ services:
         image: tdmu_api_gateway:latest
         environment:
             - PORT=3000
-            - AUTH_SERVICE_PORT=4000
-            - AUTH_SERVICE_HOST=localhost
+            - TRANSPORT_REDIS_HOST=containers-us-west-54.railway.app
+            - TRANSPORT_REDIS_PORT=7305
+            - TRANSPORT_REDIS_USERNAME=default
+            - TRANSPORT_REDIS_PASSWORD=wYMIk76FjiDU0EwtTWPV
             - POST_SERVICE_HOST=http://ip172-18-0-55-ckd6h5ksnmng00b1uveg-80.direct.labs.play-with-docker.com/
             - USER_SERVICE_HOST=http://localhost:4002/api/user
             - CLIENT_ORIGIN_URL=*

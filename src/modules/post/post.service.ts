@@ -2,14 +2,16 @@ import { RegistryService, ServiceName } from '@/registry/registry.service';
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
 import { IPostService } from './post.service.interface';
+import { ClientOptions } from '@nestjs/microservices';
 
 @Injectable()
 export class PostService implements IPostService {
     private baseURL: string;
     constructor(private registryService: RegistryService) {
-        this.baseURL = this.registryService.get(
+        const { options } = this.registryService.get(
             ServiceName.POST_SERVICE,
-        ).options.host;
+        ) as any;
+        this.baseURL = options.host;
     }
 
     async getAllPost(): Promise<any[]> {

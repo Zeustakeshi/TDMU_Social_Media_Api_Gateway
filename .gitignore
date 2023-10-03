@@ -38,3 +38,8 @@ lerna-debug.log*
 # ignore env file
 .env 
 .env.dev
+
+# ignore docker-compost file
+
+./docker-compose.yml
+./dockerfile

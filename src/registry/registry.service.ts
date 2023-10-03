@@ -14,10 +14,12 @@ export class RegistryService {
         this.envConfig = {};
         this.envConfig[ServiceName.AUTH_SERVICE] = {
             options: {
-                port: parseInt(process.env.AUTH_SERVICE_PORT),
-                host: process.env.AUTH_SERVICE_HOST,
+                port: parseInt(process.env.TRANSPORT_REDIS_PORT),
+                host: process.env.TRANSPORT_REDIS_HOST,
+                username: process.env.TRANSPORT_REDIS_USERNAME,
+                password: process.env.TRANSPORT_REDIS_PASSWORD,
             },
-            transport: Transport.TCP,
+            transport: Transport.REDIS,
         };
         this.envConfig[ServiceName.USER_SERVICE] = {
             options: {
